@@ -11,7 +11,7 @@ signed main() {
 	int n, m, i, j, x, y, z, dd, c[200001]={}, cc[200001]={}, ans=0;
 	int tt[200001]={};
 	vector<int> g[200001];
-	int h[200001];
+	int h[200001]={};
 	queue<int> q;
 	cin >> n >> m;
 	for(i=0;i<n-1;i++){

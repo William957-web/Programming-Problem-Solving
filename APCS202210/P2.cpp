@@ -16,42 +16,51 @@ int main(){
 		k=false;
 		cin >> x >> t;
 		if(x=='A'){
-			i=max(max(now[t], now[t+1]), max(now[t+2], now[t+3])) ;
-			if(i<c){
-				for(j=0;j<4;j++){
-					a[t+j][i]=1;
-					now[t+j]=i+1;
+			for(i=max({now[t], now[t+1], now[t+2], now[t+3]});i<c;i++){
+				if(a[t][i]==0 and a[t+1][i]==0 and a[t+2][i]==0 and a[t+3][i]==0){
+				    a[t][i]=1;
+				    a[t+1][i]=1;
+				    a[t+2][i]=1;
+				    a[t+3][i]=1;
+				    for(j=0;j<4;j++){
+				        now[t+j]=i+1;
+				    }
+				    k=true;
+			        ans-=4;
+			        break;
 				}
-				k=true;
-				ans-=4;
 			}
 		}
 		else if(x=='B'){
-			i=now[t];
-		    if(i+2<c){
-			    now[t]=i+3;
-			    for(j=0;j<3;j++){
-				a[t][j+i]=1;
-			    }
-			    k=true;
-			    ans-=3;
-		    }
+			for(i=max(now[t], 2);i<c;i++){
+				if(a[t][i]==0 and a[t][i-1]==0 and a[t][i-2]==0){
+				    a[t][i]=1;
+				    a[t][i-2]=1;
+				    a[t][i-1]=1;
+				    now[t]=i+1;
+				    k=true;
+			        ans-=3;
+			        break;
+				}
+			}
 		}
 		else if(x=='C'){
-			i=max(now[t], now[t+1]);
-			if(i+1<c){
-				a[t][i]=1;
-				a[t][i+1]=1;
-				a[t+1][i]=1;
-				a[t+1][i+1]=1;
-				now[t]=i+2;
-				now[t+1]=i+2;
-				k=true;
-			    ans-=4;
+			for(i=max({now[t], now[t+1], 1});i<c;i++){
+				if(a[t][i]==0 and a[t+1][i]==0 and a[t+1][i-1]==0 and a[t][i-1]==0){
+				    a[t][i]=1;
+				    a[t+1][i]=1;
+				    a[t+1][i-1]=1;
+				    a[t][i-1]=1;
+				    now[t]=i+1;
+				    now[t+1]=i+1;
+				    k=true;
+			        ans-=4;
+			        break;
+				}
 			}
 		}
 		else if(x=='D'){
-			for(i=max(now[t], now[t+1]);i<c;i++){
+			for(i=max({now[t], now[t+1], 2});i<c;i++){
 				if(a[t][i]==0 and a[t+1][i]==0 and a[t+1][i-1]==0 and a[t+1][i-2]==0){
 				    a[t][i]=1;
 				    a[t+1][i]=1;
@@ -66,7 +75,7 @@ int main(){
 			}
 		}
 		else if(x=='E'){
-			for(i=max(max(now[t], now[t+1]), now[t+2]);i<c;i++){
+			for(i=max({1, now[t+1], now[t], now[t+2]});i<c;i++){
 				if(a[t][i]==0 and a[t+1][i]==0 and a[t+1][i-1]==0 and a[t+2][i]==0 and a[t+2][i-1]==0){
 				    a[t][i]=1;
 				    a[t+1][i]=1;

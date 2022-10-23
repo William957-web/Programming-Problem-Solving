@@ -22,6 +22,6 @@ int main(){
 		mn=min(now, mn);
 		mx=max(now, mx);
 	}
-	cout << mn << ' ' << mx <<'\n';
+	cout << mx << ' ' << mn <<'\n';
 	return 0;
 }

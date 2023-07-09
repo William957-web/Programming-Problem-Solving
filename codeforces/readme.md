@@ -3,7 +3,7 @@
 ## 小標題們
 [Codeforces Round 883 (Div. 3)](#Codeforces Round 883 (Div. 3))   
 ### Codeforces Round 883 (Div. 3)
-**小記：**晚上打比賽真的有點累...pD的簡單國小幾何因為搞錯c++ double範圍做好久，還好前面和pE打夠快，rating有上升。  
+**小記：** 晚上打比賽真的有點累...pD的簡單國小幾何因為搞錯c++ double範圍做好久，還好前面和pE打夠快，rating有上升。  
 performance:1521, rating change:+82  
 #### pA
 ```cpp
